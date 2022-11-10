@@ -10,7 +10,7 @@ Be Ready is a website where you can find a Human resource employee to help you t
 
 ## Pages 
 - Home : page about the website
-- Register as HR : page to add new HR (name,email,password,specialty)
+- Register as HR : page to add new HR (name,email,password,specialty,price)
 - Register as visitor : page to add new visitor (name,email,password)
 - Login as HR or visitor : page to login (email, password)
 - HR Profile : page to view the HR Profile

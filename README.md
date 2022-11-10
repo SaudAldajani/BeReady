@@ -32,7 +32,7 @@ Be Ready is a website where you can find a Human resource employee to help you t
 - Rigester
 - View profile
 - Update profile
-- View others human resource
+- Confirm the appointment
 
 ## Figma URL :
 https://www.figma.com/file/YSZqkVJz5nfLF7NXreKS1A/BeReady?node-id=0%3A1

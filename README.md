@@ -14,10 +14,10 @@ Be Ready is a website where you can find a Human resource employee to help you t
 - Register as visitor : page to add new visitor (name,email,password)
 - Login as HR or visitor : page to login (email, password)
 - HR Profile : page to view the HR Profile
-- Comment : page to add comment on HR
 - View HRs : page to view all the HRs
+- HR details : page to view comments and add comment on HR and book apointment 
 - Update HR profile : page to update HR profile 
-- Update Visitor profile : page to update visitor profile
+- appointment : page to book apointment with HR
 
 ## Users
 
@@ -36,4 +36,4 @@ Be Ready is a website where you can find a Human resource employee to help you t
 - View others human resource
 
 ## Figma URL :
-https://www.figma.com/file/YSZqkVJz5nfLF7NXreKS1A/BeReady?node-id=2%3A105
+https://www.figma.com/file/YSZqkVJz5nfLF7NXreKS1A/BeReady?node-id=0%3A1

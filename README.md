@@ -35,5 +35,5 @@ Be Ready is a website where you can find a Human resource employee to help you t
 - Update profile
 - View others human resource
 
-
-
+## Figma URL :
+https://www.figma.com/file/YSZqkVJz5nfLF7NXreKS1A/BeReady?node-id=2%3A105

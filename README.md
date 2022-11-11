@@ -1,5 +1,5 @@
 # BeReady
-Be Ready is a website where you can find a Human resource employee to help you to get a job
+Be Ready is a website where you can find a Human resource employee to help you to be ready to the interview
 
 ## Features 
 - find human resource to help you 
@@ -9,7 +9,7 @@ Be Ready is a website where you can find a Human resource employee to help you t
 
 ## Pages 
 - Home : page about the website
-- Register as HR : page to add new HR (name,email,password,specialty)
+- Register as HR : page to add new HR (name,email,password,field)
 - Register as visitor : page to add new visitor (name,email,password)
 - Login as HR or visitor : page to login (email, password)
 - HR Profile : page to view the HR Profile

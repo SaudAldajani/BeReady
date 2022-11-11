@@ -5,4 +5,5 @@ app_name = "BeReady"
 
 urlpatterns = [
     path("", views.home, name="home"),
+
 ]

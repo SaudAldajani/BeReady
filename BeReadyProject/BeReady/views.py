@@ -6,3 +6,6 @@ from django.http import HttpRequest
 def home(request:HttpRequest):
 
     return render(request, "BeReady/base.html")
+
+
+

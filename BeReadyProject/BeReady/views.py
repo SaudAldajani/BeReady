@@ -8,4 +8,13 @@ def home(request:HttpRequest):
     return render(request, "BeReady/base.html")
 
 
+def view_hr(request:HttpRequest):
+
+    return render(request, "BeReady/view_hr.html")
+
+def add_hr(request:HttpRequest):
+
+    return render(request, "BeReady/add_HR.html")
+
+
 

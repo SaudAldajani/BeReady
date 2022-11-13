@@ -1,21 +1,24 @@
 {% extends 'BeReady/base.html' %}
+
+{% block navbar %}
+{% endblock %}
 {% block content %}
-<div class="container border rounded-3 w-50">
+<div class="mt-5 container border rounded-3 w-50">
     <h1 class="mt-2">Register New User</h1>
     <form action="{% url 'accounts:register_user' %}" method="POST" class="d-flex flex-column gap-3">
        {% csrf_token %}
         <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" name="first_name">
+            <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="first_name">
             <label for="floatingInput">First Name</label>
         </div>
 
         <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Full Name" name="last_name">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="last_name">
             <label for="floatingInput">Last Name</label>
         </div>
-
+     
         <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="username" name="username">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
             <label for="floatingInput">User Name</label>
         </div>
 

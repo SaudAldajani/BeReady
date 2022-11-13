@@ -20,22 +20,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" href="#">HR</a>
+              <a class="nav-link active" href="{% url 'BeReady:view_hr' %}">HR</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link active" href="#"></a>
             </li>
           </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-            </form>
-            <a class="me-2 nav-link active" aria-current="#" href="{% url 'accounts:login_user'%}">
-              <button class="btn btn-outline-secondary" type="submit">Login</button>  
-            </a>
-
-            <a class="nav-link active" aria-current="#" href="{% url 'accounts:register_user'%}">
-              <button class="btn btn-outline-secondary" type="submit">Sing in</button>  
-            </a>
+            <a href="{% url 'accounts:login_user'%}" class="me-2 btn btn-outline-secondary">Login In</a>
+            <a href="{% url 'accounts:register_user'%}" class="btn btn-outline-secondary">Sign In</a>
         </div>
       </div>
     </nav> 
@@ -54,11 +49,40 @@
             <img class="w-100" src="https://www.hrmexam.com/wp-content/uploads/2022/03/Approaches-to-Human-Resource-Planning-scaled.jpg" class="img-fluid" alt="..."> 
           </div>
         </div>
-        <br><br><br><br>
+    </div>
+    <div class="bg-light">
+      <div class="mt-5 mb-3 p-3 container text-center">
+        <div class="row ">
+            <div class="col">
+            </div>
+          <div class="col me-5">
+            <div class="card rounded-3" style="width: 18rem;">
+                <img src="https://www.pgmservices.in/images/about-2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">User</h5>
+                  <p class="card-text">Sign In As A User And Find A Human Resource To Help You To Be Ready for Your Interview</p>
+                  <a href="{% url 'accounts:register_user'%}" class="btn btn-outline-secondary">Create Account</a>
+                </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card rounded-3" style="width: 18rem;">
+                <img src="https://www.pgmservices.in/images/about-3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Human Resource</h5>
+                  <p class="card-text">Sign In As A Human Resource And Help Pepole To Get A Job</p><br>
+                  <a href="{% url 'accounts:hr_register'%}" class="btn btn-outline-secondary">Create Account</a>
+                </div>
+            </div>
+          </div> 
+          <div class="col">     
+        </div> 
+    </div>
+    </div>
         {% endblock %}
         
     {% block footer %}   
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+    <footer class="container-md d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <div class="col-md-4 d-flex align-items-center">
           <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
             <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"></use></svg>

@@ -23,11 +23,14 @@
         </thead>
     
         <tbody>
+          {% for HR in HRs %}
           <tr>
-            <td><a href=""></a></td>
+            <td><a href="">{{ HR.desceiption }}</a></td>
             <td></td>
+
           </tr>
         </tbody>
+        {% endfor %}
     </table>
 </div>  
 {% endblock %}

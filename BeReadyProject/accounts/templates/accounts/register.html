@@ -7,32 +7,52 @@
     <h1 class="mt-2">Register New User</h1>
     <form action="{% url 'accounts:register_user' %}" method="POST" class="d-flex flex-column gap-3">
        {% csrf_token %}
-        <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="First Name" name="first_name">
-            <label for="floatingInput">First Name</label>
+      <div class="container">
+
+        <div class=" mt-3 row align-items-start">
+          <div class="col">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">First Name:</label>
+              <input name = 'first_name' type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>   
+          </div>
+
+          <div class="col">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Last Name:</label>
+              <input name = 'last_name' type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+          </div>
         </div>
 
-        <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Last Name" name="last_name">
-            <label for="floatingInput">Last Name</label>
-        </div>
-     
-        <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
-            <label for="floatingInput">User Name</label>
+        <div class="row align-items-start">
+          <div class="col">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">User Name:</label>
+              <input name = 'username' type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="mb-3">
+              <label for="exampleFormControlInput1" class="form-label">Email:</label>
+              <input name = 'email' type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            </div>
+          </div>
         </div>
 
-        <div class="m-2 form-floating">
-            <input type="text" class="form-control" id="floatingInput" placeholder="Email" name="email">
-            <label for="floatingInput">Email</label>
-        </div>
+          <div class="row align-items-start">
+            <div class="col">
+              <div class="mb-3">
+                <label for="exampleFormControlInput1" class="form-label">Password:</label>
+                <input name = 'password' type="password" class="form-control" id="exampleFormControlInput1" placeholder="">
+              </div>
+            </div>
+          </div>
+      </div>
+      <button class="m-2 mb-3 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>
+{% endblock %}
 
-        <div class="m-2 form-floating">
-          <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
-          <label for="floatingPassword">Password</label>
-        </div>
+{% block footer %}
 
-        <button class="m-2 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>
-      </form>
-</div>
 {% endblock %}

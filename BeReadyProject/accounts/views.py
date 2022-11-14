@@ -26,7 +26,7 @@ def register_human_resource(request : HttpRequest):
         new_hr = User.objects.create_user(first_name=request.POST["first_name"],last_name=request.POST["last_name"],username=request.POST["username"], email= request.POST["email"], password=request.POST["password"])
         new_hr.save()
 
-        hr_profile = HumanResourceProfile(user=new_hr, field=request.POST["field"], desceiption=request.POST["desceiption"],image=request.FILES["image"])
+        hr_profile = HumanResourceProfile(user=new_hr, group="HR",field=request.POST["field"], desceiption=request.POST["desceiption"],image=request.FILES["image"])
         hr_profile.save()
         return redirect("BeReady:home")
         
@@ -41,7 +41,7 @@ def login_user(request : HttpRequest):
         
         if user:
             login(request, user)
-            return redirect("BeReady:base.html")
+            return redirect("BeReady:home")
         else:
             massage = "User Not Found, Check Your Credentials"
 
@@ -52,6 +52,6 @@ def logout_user(request: HttpRequest):
     ''' This function will logout a new user'''
     logout(request)
 
-    return redirect("BeReady:base.html")
+    return redirect("BeReady:home")
 
     

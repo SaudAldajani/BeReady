@@ -8,6 +8,9 @@ class HumanResourceProfile(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key=True)
     field = models.CharField(max_length=64)
     desceiption = models.TextField()
+    group = models.CharField(max_length=32)
+    price = models.IntegerField()
+    card_number = models.IntegerField()
     image = models.ImageField(upload_to="images/")
 
 

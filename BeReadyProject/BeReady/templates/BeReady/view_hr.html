@@ -18,20 +18,17 @@
         <thead>
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Field</th>
           </tr>
         </thead>
     
         <tbody>
           {% for HR in HRs %}
-          {% for HRpx in HRp %}
           <tr>
             <td><a href="{% url 'BeReady:profile_detail' HR.id %}">{{ HR.first_name }}</a></td>
-            <td>{{ HRpx.field }}</td>
           </tr>
         </tbody>
         {% endfor %}
-        {% endfor %}
+
     </table>
 </div>  
 {% endblock %}

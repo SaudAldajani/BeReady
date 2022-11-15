@@ -18,18 +18,44 @@
     </div>
   </div>
 
-  <div class="row align-items-center">
+  <div class="row align-items-start">
     <div class="col">
       <p>{{ HR.email }}</p>
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+    </div>
+    <div class="col">
+      <a href="{% url 'accounts:hr_register'%}" class="btn btn-outline-secondary">Appointment Booking</a>
     </div>
   </div>
   <hr>
 </div>
 
-  <!-- <img src="{{ HRp.image.url }}"  class=""/>
-  <h1>{{ HR.username }}</h1>
-  <p>{{ HRp.desceiption }}</p>
-   -->
+
+<div class="container">
+
+  <h2>Comments</h2>
+
+
+  {% for comment in comments %}
+      <div class="border rounded-4 p-3 mt-2">
+        <span>{{ comment.user.username }}</span>
+        <hr>
+        <p>{{ comment.content }}</p>
+      </div>
+  {% endfor %}
+  
+  <hr/>
+  <form action="{% url 'BeReady:comment' HR.id %}" method="POST">
+      {% csrf_token %}
+      <label class="form-label">Comment:</label>
+      <textarea name="content" class="form-control"></textarea>
+      <input type="submit" class="btn btn-outline-secondary mt-3" value="New Comment" />
+  </form>
+
+</div>
 
 
 {% endblock %}

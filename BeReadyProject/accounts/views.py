@@ -7,7 +7,7 @@ from .models import HumanResourceProfile
 # Create your views here.
 
 def register_user(request : HttpRequest):
-    ''' This function will create a new user'''
+    '''function to create a new user'''
 
     if request.method == "POST":
 
@@ -19,7 +19,7 @@ def register_user(request : HttpRequest):
     
 
 def register_human_resource(request : HttpRequest):
-    ''' This function will create a human resource user'''
+    '''function to create a new human resource user'''
 
     if request.method == "POST":
 
@@ -34,7 +34,7 @@ def register_human_resource(request : HttpRequest):
 
 
 def login_user(request : HttpRequest):
-    ''' This function will login a user'''
+    '''function to login a user'''
     massage: str = ""
     if request.method == "POST":
         user = authenticate(request, username=request.POST["username"], password=request.POST["password"])
@@ -49,7 +49,7 @@ def login_user(request : HttpRequest):
 
 
 def logout_user(request: HttpRequest):
-    ''' This function will logout a new user'''
+    '''function to logout a user'''
     logout(request)
 
     return redirect("BeReady:home")

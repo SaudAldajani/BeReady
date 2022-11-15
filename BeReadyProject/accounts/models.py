@@ -9,8 +9,8 @@ class HumanResourceProfile(models.Model):
     field = models.CharField(max_length=64)
     desceiption = models.TextField()
     group = models.CharField(max_length=32)
-    price = models.IntegerField()
-    card_number = models.IntegerField()
+    price = models.CharField(max_length=32)
+    card_number = models.CharField(max_length=32)
     image = models.ImageField(upload_to="images/")
 
 

@@ -24,12 +24,13 @@
     
         <tbody>
           {% for HR in HRs %}
+          {% for HRpx in HRp %}
           <tr>
-            <td><a href="">{{ HR.desceiption }}</a></td>
-            <td></td>
-
+            <td><a href="{% url 'BeReady:profile_detail' HR.id %}">{{ HR.first_name }}</a></td>
+            <td>{{ HRpx.field }}</td>
           </tr>
         </tbody>
+        {% endfor %}
         {% endfor %}
     </table>
 </div>  

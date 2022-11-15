@@ -1,15 +1,37 @@
 {% extends 'BeReady/base.html' %}
 
 {% block content %}
-<div class="container mt-5 mb-3 p-3">
-    <img src="..." class="img-thumbnail" alt="...">
-    <h3>fff</h3>
-    <p>ccccccc</p>
-    <hr>
-    <div>
-      xxxxxx
+<div class="container">
+  <div class="row align-items-start w-50">
+    <div class="col">
+      <img style="border-radius:10%;" src="{{ HRp.image.url }}"  class=""/>
     </div>
+    <div class="col">
+      <p><b>Desceiption:</b></p>
+      <p>{{ HRp.desceiption }}</p>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col mt-3">
+      <p><b>{{ HR.first_name }} {{ HR.last_name }}</b></p>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col">
+      <p>{{ HR.email }}</p>
+    </div>
+  </div>
+  <hr>
 </div>
+
+  <!-- <img src="{{ HRp.image.url }}"  class=""/>
+  <h1>{{ HR.username }}</h1>
+  <p>{{ HRp.desceiption }}</p>
+   -->
+
+
 {% endblock %}
 
 {% block footer %}

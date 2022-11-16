@@ -11,11 +11,14 @@ def home(request:HttpRequest):
 
 
 def profile(request:HttpRequest):
-    user_id : User = request.user.id
-    HR = User.objects.get(id=user_id)
-    HR_profile = HumanResourceProfile.objects.get(user_id=user_id)
-    appointments = Appointment.objects.filter(HR = HR_profile)
-
+    try:
+        user_id : User = request.user.id
+        HR = User.objects.get(id=user_id)
+        HR_profile = HumanResourceProfile.objects.get(user_id=user_id)
+        appointments = Appointment.objects.filter(HR = HR_profile)
+    except:
+         return render(request ,"BeReady/not_found.html")
+        
     return render(request, "BeReady/HR_profile.html",{"HR" : HR,"HRp":HR_profile,'appointments':appointments})
 
 
@@ -23,7 +26,7 @@ def view_hr(request:HttpRequest):
     '''function to view all human resources'''
 
     if "search" in request.GET:
-        HRs = HumanResourceProfile.objects.filter(user__username__contains=request.GET["search"]) 
+        HRs = HumanResourceProfile.objects.filter(field__contains=request.GET["search"]) 
 
     HRs = User.objects.filter(humanresourceprofile__group="HR")
 

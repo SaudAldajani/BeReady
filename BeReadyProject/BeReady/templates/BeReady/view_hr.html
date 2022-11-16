@@ -1,5 +1,8 @@
 {% extends 'BeReady/base.html' %}
 
+{% block title %} HR {% endblock %}
+
+
 {% block content %}
 
 <div class="mt-5 mb-3 p-3 container">
@@ -19,6 +22,7 @@
         <thead>
           <tr>
             <th scope="col">Name</th>
+            <th scope="col">Field</th>
           </tr>
         </thead>
     
@@ -26,10 +30,10 @@
         {% for HR in HRs %}
           <tr>
             <td><a href="{% url 'BeReady:profile_detail' HR.id %}">{{ HR.first_name }}</a></td>
+            <td>{{ HR.humanresourceprofile.field }}</td>
           </tr>
-        </tbody>
         {% endfor %}
-
+        </tbody>
     </table>
 </div>  
 {% endblock %}

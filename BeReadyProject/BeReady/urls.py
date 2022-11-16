@@ -11,7 +11,7 @@ urlpatterns = [
     path("comment/<user_id>/", views.add_comment, name="comment"),
 
     path("HR/<int:user_id>/appointment/", views.appointment, name="appointment"), 
-    path("add_appointment/<int:user_id>/", views.add_appointment, name="add_appointment"),
+    path("add/appointment/<int:user_id>/", views.add_appointment, name="add_appointment"),
 
 ]
 

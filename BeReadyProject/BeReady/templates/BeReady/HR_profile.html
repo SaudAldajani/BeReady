@@ -1,0 +1,33 @@
+{% extends 'BeReady/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row align-items-start w-50">
+    <div class="col">
+      <img style="width: 150px; border-radius:10%;" src="{{ HRp.image.url }}"  class=""/>
+    </div>
+    <div class="col">
+      <p><b>Desceiption:</b></p>
+      <p>{{ HRp.desceiption }}</p>
+    </div>
+  </div>
+
+  <div class="row align-items-center">
+    <div class="col mt-3">
+      <p><b>{{ HR.first_name }} {{ HR.last_name }}</b></p>
+    </div>
+  </div>
+
+<div class="container">
+    <hr>
+    <h2>Appointments</h2>
+  {% for appointment in appointments %}
+  <div class="border rounded-4 p-3 mt-2">
+    <span>{{ appointment.user.username }}</span>
+    <div>{{ appointment.user.email }}</div>
+    <hr>
+    <p>{{ appointment.desceiption }}</p>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

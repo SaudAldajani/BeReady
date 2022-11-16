@@ -10,20 +10,20 @@ def home(request:HttpRequest):
     return render(request, "BeReady/base.html")
 
 
-def profile(request:HttpRequest, user_id:int):
-
+def profile(request:HttpRequest):
+    user_id : User = request.user.id
     HR = User.objects.get(id=user_id)
     HR_profile = HumanResourceProfile.objects.get(user_id=user_id)
-    
+    appointments = Appointment.objects.filter(HR = HR_profile)
 
-    return render(request, "BeReady/HR_profile.html",{"HR" : HR,"HRp":HR_profile})
+    return render(request, "BeReady/HR_profile.html",{"HR" : HR,"HRp":HR_profile,'appointments':appointments})
 
 
 def view_hr(request:HttpRequest):
     '''function to view all human resources'''
 
     if "search" in request.GET:
-        HRs = User.objects.filter(humanresourceprofile__first_name__contains=request.GET["search"],humanresourceprofile__group="HR") 
+        HRs = HumanResourceProfile.objects.filter(user__username__contains=request.GET["search"]) 
 
     HRs = User.objects.filter(humanresourceprofile__group="HR")
 

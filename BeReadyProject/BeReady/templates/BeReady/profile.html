@@ -27,7 +27,7 @@
     <div class="col">
     </div>
     <div class="col">
-      <a href="{% url 'accounts:hr_register'%}" class="btn btn-outline-secondary">Appointment Booking</a>
+      <a href="{% url 'BeReady:appointment' HR.id %}" class="btn btn-outline-secondary">Appointment Booking</a>
     </div>
   </div>
   <hr>
@@ -50,7 +50,7 @@
   <hr/>
   <form action="{% url 'BeReady:comment' HR.id %}" method="POST">
       {% csrf_token %}
-      <label class="form-label">Comment:</label>
+      <label class="form-label"><b>Comment:</b></label>
       <textarea name="content" class="form-control"></textarea>
       <input type="submit" class="btn btn-outline-secondary mt-3" value="New Comment" />
   </form>

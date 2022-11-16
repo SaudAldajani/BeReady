@@ -17,3 +17,4 @@ class appointment(models.Model):
     HR = models.ForeignKey(HumanResourceProfile, on_delete = models.CASCADE)
     desceiption = models.TextField()
     appointment_datetime = models.DateTimeField()
+    

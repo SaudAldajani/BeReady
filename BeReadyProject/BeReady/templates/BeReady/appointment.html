@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Appointment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="bg-light mt-5 container border rounded-3 w-50">
+        <h2 class="mt-2">Appointment</h2>
+        <form action="{% url 'BeReady:add_appointment' HR.id %}" method="POST" class="d-flex flex-column gap-3" enctype="multipart/form-data">
+           {% csrf_token %}
+          <div class="container">
+    
+            <div class=" mt-3 row align-items-start">
+              <div class="col">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Date & Time:</label>
+                  <input name = 'appointment_datetime' type="datetime-local" class="form-control" id="exampleFormControlInput1" placeholder="">
+                </div>   
+              </div>
+            </div>
+
+            <div class=" mt-3 row align-items-start">
+                <div class="col">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Desceiption:</label>
+                    <textarea name="desceiption" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <button class="m-2 mb-3 btn btn-lg btn-outline-secondary" type="submit">Sign in</button>      
+        </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>
+
+
+    

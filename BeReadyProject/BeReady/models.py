@@ -11,10 +11,10 @@ class Comment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now=True)
    
-class appointment(models.Model):
+
+class Appointment(models.Model):
 
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     HR = models.ForeignKey(HumanResourceProfile, on_delete = models.CASCADE)
     desceiption = models.TextField()
     appointment_datetime = models.DateTimeField()
-    

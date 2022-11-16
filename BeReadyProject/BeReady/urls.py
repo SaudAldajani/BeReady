@@ -13,6 +13,5 @@ urlpatterns = [
     path("HR/<int:user_id>/appointment/", views.appointment, name="appointment"), 
     path("add_appointment/<int:user_id>/", views.add_appointment, name="add_appointment"),
 
-  
 ]
 

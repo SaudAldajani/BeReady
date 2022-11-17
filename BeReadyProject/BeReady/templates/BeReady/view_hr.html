@@ -21,14 +21,12 @@
         <thead>
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Field</th>
           </tr>
         </thead>
         <tbody>
         {% for HR in HRs %}
           <tr>
             <td><a class="" href="{% url 'BeReady:profile_detail' HR.id %}">{{ HR.first_name }} {{ HR.last_name }}</a></td>
-            <td>{{ HR.humanresourceprofile.field }}</td>
           </tr>
         {% endfor %}
         </tbody>

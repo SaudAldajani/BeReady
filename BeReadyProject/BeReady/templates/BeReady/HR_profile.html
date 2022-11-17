@@ -24,9 +24,22 @@
     <h2>Appointments</h2>
     {% for appointment in appointments %}
   <div class="border rounded-4 p-3 mt-2">
-    <span>{{ appointment.user.username }}</span>
-    <div>
-      <a href = "mailto: {{ appointment.user.email }}">{{ appointment.user.email }}</a>
+    <div class="row align-items-start">
+      <div class="col">
+           <span>{{ appointment.user.first_name  }} {{ appointment.user.last_name }}</span>
+      <div>
+        <small class="text-muted">{{ appointment.appointment_datetime }}</small>
+      </div> 
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+      </div>
+      <div class="col">
+        <a href="mailto: {{ appointment.user.email }}" class="btn mt-3 btn-outline-secondary">Send Email</a>
+      </div>
     </div>
     <hr>
     <p>{{ appointment.desceiption }}</p>

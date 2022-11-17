@@ -95,3 +95,13 @@ def add_appointment(request: HttpRequest, user_id : int):
     return redirect("BeReady:profile_detail", HR.id)
 
 
+def about(request:HttpRequest):
+    '''function to view the about page '''
+
+    return render(request, "BeReady/about.html")
+
+
+def contact(request:HttpRequest):
+    '''function to view the contact page '''
+
+    return render(request, "BeReady/contact.html")

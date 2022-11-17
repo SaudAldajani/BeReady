@@ -13,5 +13,8 @@ urlpatterns = [
     path("HR/<int:user_id>/appointment/", views.appointment, name="appointment"), 
     path("add/appointment/<int:user_id>/", views.add_appointment, name="add_appointment"),
 
+    path("BeReady/About", views.about, name="about"),
+    path("BeReady/Contact", views.contact, name="contact"),
+
 ]
 

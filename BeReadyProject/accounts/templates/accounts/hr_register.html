@@ -8,9 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
   </head>
   <body>
-    <!-- style=" background: rgb(173,247,251);
-  background: linear-gradient(90deg, rgba(173,247,251,1) 16%, rgba(255,255,255,1) 43%);
-  " -->
     <div class="bg-light mt-5 container border rounded-3 w-50">
       <h1 class="mt-2">Register New HR</h1>
       <form action="{% url 'accounts:hr_register' %}" method="POST" class="d-flex flex-column gap-3" enctype="multipart/form-data">
@@ -76,7 +73,7 @@
               <div class="col">
                 <div class="mb-3">
                   <label for="exampleFormControlInput1" class="form-label">Card Number:</label>
-                  <input name='card_number' type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                  <input name='card_number' type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
                 </div>
               </div>
             </div>

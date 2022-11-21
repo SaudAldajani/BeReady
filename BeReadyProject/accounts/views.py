@@ -26,7 +26,7 @@ def register_human_resource(request : HttpRequest):
         new_hr = User.objects.create_user(first_name=request.POST["first_name"],last_name=request.POST["last_name"],username=request.POST["username"], email= request.POST["email"], password=request.POST["password"])
         new_hr.save()
 
-        hr_profile = HumanResourceProfile(user=new_hr, group="HR",field=request.POST["field"], desceiption=request.POST["desceiption"],price=request.POST["price"],image=request.FILES.get('image', 'default.jfif'))
+        hr_profile = HumanResourceProfile(user=new_hr, group="HR",field="f", desceiption=request.POST["desceiption"],price=request.POST["price"],image=request.FILES.get('image', 'default.jfif'))
         hr_profile.save()
         return redirect("BeReady:home")
         

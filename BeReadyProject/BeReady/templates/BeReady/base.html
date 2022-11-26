@@ -13,20 +13,25 @@
     {% block navbar %}
     <nav class="shadow-sm navbar navbar-expand-lg bg-white mb-4 border-bottom">
       <div class="container-fluid">
+
+        <div class="dropdown me-3">
+          <svg xmlns="http://www.w3.org/2000/svg" type="button" data-bs-toggle="dropdown" width="32" height="32" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+          </svg>
+          {% if user.humanresourceprofile %}
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="{% url 'BeReady:profile' %}">Profile</a></li>
+          </ul>
+          {% endif %}
+        </div>
+       
         <a class="navbar-brand" href="/">BeReady</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+      
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'BeReady:view_hr' %}">HR</a>
             </li>
-            {% if user.humanresourceprofile %}
-            <li class="nav-item">
-              <a class="nav-link active" href="{% url 'BeReady:profile' %}">Profile</a>
-            </li>
-            {% endif %}
             <li class="nav-item">
               <a class="nav-link active" href="{% url 'BeReady:about' %}">About</a>
             </li>
@@ -60,9 +65,9 @@
     </div>
     <div class="bg-light">
       <div class="mt-5 mb-3 p-3 container text-center">
-        <div class="row ">
-            <div class="col">
-            </div>
+        <div class="row">
+          <div class="col">
+          </div>
           <div class="col me-5">
             <div class="card rounded-3" style="width: 18rem;">
                 <img src="{% static 'images/user_image.jpg' %}" class="card-img-top" alt="...">
@@ -82,9 +87,9 @@
                   <a href="{% url 'accounts:hr_register'%}" class="btn btn-outline-secondary">Create Account</a>
                 </div>
             </div>
+          </div>
+          <div class="col">
           </div> 
-          <div class="col">     
-        </div> 
     </div>
     </div>
     {% endblock %}

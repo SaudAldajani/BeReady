@@ -33,7 +33,7 @@ def view_hr(request:HttpRequest):
     return render(request, "BeReady/view_hr.html", {"HRs" : HRs})
 
     
-def profile_detail(request:HttpRequest, user_id : int):
+def HR_detail(request:HttpRequest, user_id : int):
     '''function to view the human resources profile  '''
 
     try:
@@ -43,7 +43,7 @@ def profile_detail(request:HttpRequest, user_id : int):
     except:
         return render(request ,"BeReady/not_found.html")
  
-    return render(request, "BeReady/profile.html", {"HR" : HR,"HRp":HR_profile, "comments":comments})
+    return render(request, "BeReady/HR_detail.html", {"HR" : HR,"HRp":HR_profile, "comments":comments})
     
 
 def add_comment(request: HttpRequest, user_id : int):
@@ -62,7 +62,7 @@ def add_comment(request: HttpRequest, user_id : int):
         new_comment = Comment(HR=HR.humanresourceprofile,user=user,content=request.POST["content"])
         new_comment.save()
 
-    return redirect("BeReady:profile_detail", HR.id)
+    return redirect("BeReady:HR_detail", HR.id)
 
 
 def appointment(request:HttpRequest, user_id : int):
@@ -78,10 +78,20 @@ def appointment(request:HttpRequest, user_id : int):
 
 def add_appointment(request: HttpRequest, user_id : int):
     '''function to make the user add comment on The human resources'''
-
+    
+    '''
+    appointments = Appointment.objects.filter(HR = HR_profile)
+            previous_appointments : list = []
+            for appoinment in appointments:
+                print("#######################",appoinment.appointment_datetime)
+                previous_appointments.append(appoinment.appointment_datetime)
+            print("#######################",previous_appointments)
+            print("@@@@@@@@@@@@@@@@@@@@@@@",new_appointment.appointment_datetime)
+    '''
     try:
         HR = User.objects.get(id=user_id)
         user : User = request.user
+
     except:
         return render(request , "BeReady/not_found.html")
 
@@ -92,7 +102,7 @@ def add_appointment(request: HttpRequest, user_id : int):
         new_appointment = Appointment(HR=HR.humanresourceprofile,user=user,desceiption=request.POST["desceiption"],appointment_datetime=request.POST["appointment_datetime"])
         new_appointment.save()
 
-    return redirect("BeReady:profile_detail", HR.id)
+    return redirect("BeReady:HR_detail", HR.id)
 
 
 def about(request:HttpRequest):

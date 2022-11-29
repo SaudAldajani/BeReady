@@ -19,11 +19,11 @@
 <div class="row row-cols-3 m-5">
   {% for HR in HRs %}
   <div class="card my-4 me-5 text-center" style="width: 18rem;">
-    <img src="{{ HR.humanresourceprofile.image.url }}" width="200px" height="250px" class="mt-3 container-fluid rounded-circle card-img-top" alt="Profile image">
+    <img src="{{ HR.humanresourceprofile.image.url }}" width="10px" height="200px" class="mt-3 container-fluid rounded-circle card-img-top" alt="Profile image">
     <div class="card-body">
       <h5 class="card-title">{{ HR.first_name }} {{ HR.last_name }}</h5>
       <p class="card-text">{{ HR.humanresourceprofile.desceiption }}</p>
-      <a href="{% url 'BeReady:HR_detail' HR.id %}" class="btn btn-primary">View Profile</a>
+      <a href="{% url 'BeReady:HR_detail' HR.id %}" class="btn btn-outline-secondary">View Profile</a>
     </div>
   </div>
   {% endfor %}

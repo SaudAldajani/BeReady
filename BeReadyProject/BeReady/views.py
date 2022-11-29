@@ -9,6 +9,29 @@ def home(request:HttpRequest):
 
     return render(request, "BeReady/base.html")
 
+def update_profile(request:HttpRequest, user_id:int):
+    '''function to view the home page '''
+    try:
+        HR = User.objects.get(id=user_id)
+    except:
+        return render(request , "blogApp/not_found.html")
+
+    if request.method == "POST":
+        HR.first_name = request.POST["first_name"]
+        HR.last_name = request.POST["last_name"]
+        HR.username = request.POST["username"]
+        HR.email = request.POST["email"]
+        HR.password = request.POST["password"]
+        HR.price = request.POST["price"]
+        HR.card_number = request.POST["card_number"]
+        HR.desceiption = request.POST["desceiption"]
+        HR.image = request.POST["image"]
+        HR.save()
+
+        return redirect("BeReady:view_hr")
+
+    return render(request, "BeReady/update_profile.html",{"HR" : HR})
+
 
 def profile(request:HttpRequest):
     try:

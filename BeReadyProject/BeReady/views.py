@@ -9,23 +9,24 @@ def home(request:HttpRequest):
 
     return render(request, "BeReady/base.html")
 
+
 def update_profile(request:HttpRequest, user_id:int):
-    '''function to view the home page '''
+    '''function to update HR profile'''
     try:
         HR = User.objects.get(id=user_id)
     except:
         return render(request , "blogApp/not_found.html")
 
     if request.method == "POST":
-        HR.first_name = request.POST["first_name"]
-        HR.last_name = request.POST["last_name"]
-        HR.username = request.POST["username"]
-        HR.email = request.POST["email"]
-        HR.password = request.POST["password"]
-        HR.price = request.POST["price"]
-        HR.card_number = request.POST["card_number"]
-        HR.desceiption = request.POST["desceiption"]
-        HR.image = request.POST["image"]
+        HR.first_name = request.POST.get("first_name")
+        HR.last_name = request.POST.get("last_name")
+        HR.username = request.POST.get("username")
+        HR.email = request.POST.get("email")
+        HR.password = request.POST.get("password")
+        HR.price = request.POST.get("price")
+        HR.card_number = request.POST.get("card_number")
+        HR.desceiption = request.POST.get("desceiption")
+        HR.image = request.POST.get("image")
         HR.save()
 
         return redirect("BeReady:view_hr")
@@ -34,6 +35,7 @@ def update_profile(request:HttpRequest, user_id:int):
 
 
 def profile(request:HttpRequest):
+    '''function to view HR profile'''
     try:
         user_id : User = request.user.id
         HR = User.objects.get(id=user_id)
@@ -42,23 +44,21 @@ def profile(request:HttpRequest):
     except:
          return render(request ,"BeReady/not_found.html")
         
-    return render(request, "BeReady/HR_profile.html",{"HR" : HR,"HRp":HR_profile,'appointments':appointments})
+    return render(request, "BeReady/HR_profile.html",{ "HR":HR,'appointments':appointments})
 
 
 def view_hr(request:HttpRequest):
     '''function to view all human resources'''
-
     if "search" in request.GET:
-        HRs = HumanResourceProfile.objects.filter(field__contains=request.GET["search"]) 
-
-    HRs = User.objects.filter(humanresourceprofile__group="HR")
+        HRs = User.objects.filter(first_name__contains=request.GET["search"]) 
+    else:
+        HRs = User.objects.filter(humanresourceprofile__group="HR")
 
     return render(request, "BeReady/view_hr.html", {"HRs" : HRs})
 
     
 def HR_detail(request:HttpRequest, user_id : int):
     '''function to view the human resources profile  '''
-
     try:
         HR = User.objects.get(id=user_id)
         HR_profile = HumanResourceProfile.objects.get(user_id=user_id)
@@ -66,8 +66,8 @@ def HR_detail(request:HttpRequest, user_id : int):
     except:
         return render(request ,"BeReady/not_found.html")
  
-    return render(request, "BeReady/HR_detail.html", {"HR" : HR,"HRp":HR_profile, "comments":comments})
-    
+    return render(request, "BeReady/HR_detail.html", {"HR" : HR,"comments":comments})
+
 
 def add_comment(request: HttpRequest, user_id : int):
     '''function to make the user add comment on The human resources'''
@@ -122,7 +122,7 @@ def add_appointment(request: HttpRequest, user_id : int):
         return redirect("accounts:login_user")
 
     if request.method == "POST":
-        new_appointment = Appointment(HR=HR.humanresourceprofile,user=user,desceiption=request.POST["desceiption"],appointment_datetime=request.POST["appointment_datetime"])
+        new_appointment = Appointment(HR=HR.humanresourceprofile,user=user,desceiption=request.POST.get("desceiption"),appointment_datetime=request.POST.get("appointment_datetime"))
         new_appointment.save()
 
     return redirect("BeReady:HR_detail", HR.id)

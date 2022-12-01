@@ -35,7 +35,8 @@
   <p>Bio</p>
   <p>{{ HR.humanresourceprofile.desceiption }}</p>
   <hr/>
-  <!-- <p>Comments</p>
+
+  <p>Comments</p>
   {% for comment in comments %}
       <div class="border rounded-4 p-3 mt-2">
         <span>{{ comment.user.username }}</span>
@@ -45,10 +46,11 @@
   {% endfor %} 
   <form action="{% url 'BeReady:comment' HR.id %}" method="POST">
     {% csrf_token %}
-    <label class="form-label"><p>Comment</p></label>
+    <hr/>
+    <p class="mt-2">Comment</p>
     <textarea name="content" class="form-control"></textarea>
     <input type="submit" class="btn btn-outline-secondary mt-3" value="Add Comment"/>
-  </form> -->
+  </form>
 </div>
 {% endblock %}
 
